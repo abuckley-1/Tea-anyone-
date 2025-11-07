@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The SHEQ Team Welfare HUB - Hot Drinks Randomculator</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background: url('image.png') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+    }
+
+    .container {
+        background: rgba(0, 0, 0, 0.65);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        width: 380px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        color: #f8f8f8;
+    }
+
+    {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: #ddd;
+    }
+
+    #result {
+        font-size: 1.4rem;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #ffeb3b;
+        min-height: 40px;
+    }
+
+    button {
+        background: #ff9800;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background: #e68900;
+    }
+
+    .drink-info {
+        font-size: 0.95rem;
+        color: #ccc;
+        margin-top: 10px;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>The SHEQ Team Welfare HUB<br>Hot Drinks Randomculator</h1>
+        <div id="instruction">Press the button to find out who is making the next drink!</div>
+        <div id="result"></div>
+        <button onclick="pickPerson()">Who's Next?</button>
+        <div class="drink-info" id="drinkInfo"></div>
+    </div>
+
+<script>
+    const participants = [
+        { name: "Wayne", drink: "Coffee (Black)" },
+        { name: "Josh", drink: "Tea (Milk, No Sugar)" },
+        { name: "Kelly", drink: "Mystery Drink (Who knows!)" },
+        { name: "Andy", drink: "Tea (White, One Sugar)" }
+    ];
+
+    function pickPerson() {
+        const randomIndex = Math.floor(Math.random() * participants.length);
+        const person = participants[randomIndex];
+        document.getElementById('result').textContent = `${person.name} is making the next drink!`;
+        document.getElementById('drinkInfo').textContent = `Preferred drink: ${person.drink}`;
+    }
+</script>
+</body>
+</html>
